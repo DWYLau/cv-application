@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Inter+Tight:wght@300&family=Oxygen&display=swap");
+
+.header {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  background-color: inherit;
+}
+
+.header h1 {
+  background-color: blue;
+  color: white;
+  max-height: 4.5rem;
+  padding: 1rem;
+  border-radius: 1.5rem;
+}
