@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cv-container {
+  margin: 2%;
+  border: 3px solid black;
+  background-color: white;
+  min-width: 595px;
+  min-height: 750px;
+}

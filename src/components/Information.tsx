@@ -1,6 +1,10 @@
 import "../styles/Information.css"
 
-function Information({ children }) {
+interface InformationProps {
+  children: React.ReactNode
+}
+
+function Information({ children }: InformationProps) {
   return <div className='information'>{children}</div>
 }
 

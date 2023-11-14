@@ -1,7 +1,9 @@
 .information {
-  min-width: 40vw;
-  min-height: 90vh;
   margin: 2%;
   border: 1px solid black;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-width: 595px;
 }

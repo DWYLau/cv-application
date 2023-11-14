@@ -1,13 +1,15 @@
-import Information from "./Information"
 import "../styles/Header.css"
 
-function Header() {
+interface HeaderProps {
+  children: React.ReactNode
+}
+
+function Header({ children }: HeaderProps) {
   return (
-    <Information>
-      <header className='header'>
-        <h1>CV Application</h1>
-      </header>
-    </Information>
+    <header className='header'>
+      <h1>CV Application</h1>
+      {children}
+    </header>
   )
 }
 
