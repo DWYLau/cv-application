@@ -1,42 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Inter+Tight:wght@300&family=Oxygen&display=swap");
 
-.header {
-  font-family: "Inter", sans-serif;
+.input-container {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: inherit;
 }
 
-.header h1 {
+.title {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+}
+
+.title h1 {
   background-color: #e3f4f4;
   color: black;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   max-height: 5rem;
   padding: 1rem;
   border-radius: 0.6rem;
   outline: none;
   transition: ease 0.5s;
   margin: 0.5rem;
-  margin-left: 1rem;
 }
 
-.header button {
+.title img {
   position: relative;
-  right: 40px;
+  right: 140px;
+  padding: 3px;
+  border-radius: 0.5rem;
   background-color: #e3f4f4;
-  color: black;
-  font: inherit;
-  font-weight: bold;
-  padding: 1rem;
-  height: 3rem;
-  border-radius: 1rem;
-  cursor: pointer;
+  height: 40px;
+  width: 40px;
   transition: ease 0.5s;
+  cursor: pointer;
 }
 
-.header h1:hover,
-.header button:hover {
+.title h1:hover,
+.title img:hover {
   background-color: #c4dfdf;
   box-shadow: 0 0 1.5rem #c4dfdf;
 }

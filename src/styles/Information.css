@@ -4,6 +4,7 @@
   background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
+  gap: 1rem;
   min-width: 595px;
 }

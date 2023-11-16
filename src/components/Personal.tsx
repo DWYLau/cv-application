@@ -1,3 +1,6 @@
+import "../styles/Personal.css"
+import maximize from "../assets/maximize.png"
+import minimize from "../assets/minimize.png"
 import { useState, ChangeEvent } from "react"
 
 interface InputChangeEvent extends ChangeEvent<HTMLInputElement> {
@@ -9,6 +12,8 @@ interface InputChangeEvent extends ChangeEvent<HTMLInputElement> {
 
 function Personal() {
   const [inputs, setInputs] = useState({ name: "", age: "" })
+  const [image, setImage] = useState(true)
+  const [containerVisible, setContainerVisible] = useState(false)
 
   function handleChange(event: InputChangeEvent) {
     const name = event.target.name
@@ -21,29 +26,45 @@ function Personal() {
     console.log(inputs)
   }
 
+  function handleInput() {
+    setContainerVisible(visible => !visible)
+    setImage(maximize => !maximize)
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Personal</h1>
-      <div className='input-container'>
-        <label>Enter your name</label>
-        <input
-          type='text'
-          name='name'
-          value={inputs.name || ""}
-          onChange={handleChange}
-          placeholder='name'
-        />
-        <label>Age</label>
-        <input
-          type='number'
-          name='age'
-          value={inputs.age || ""}
-          onChange={handleChange}
-          placeholder='age'
-        />
-        <input type='submit' />
-      </div>
-    </form>
+    <section>
+      <header className='title'>
+        <h1>Personal Details</h1>
+        {image ? (
+          <img onClick={handleInput} src={maximize} alt='maximize' />
+        ) : (
+          <img onClick={handleInput} src={minimize} alt='minimize' />
+        )}
+      </header>
+      <form onSubmit={handleSubmit}>
+        {containerVisible && (
+          <div className='input-container'>
+            <label>Enter your name</label>
+            <input
+              type='text'
+              name='name'
+              value={inputs.name || ""}
+              onChange={handleChange}
+              placeholder='name'
+            />
+            <label>Age</label>
+            <input
+              type='number'
+              name='age'
+              value={inputs.age || ""}
+              onChange={handleChange}
+              placeholder='age'
+            />
+            <button type='submit'>CLICK</button>
+          </div>
+        )}
+      </form>
+    </section>
   )
 }
 
