@@ -4,6 +4,7 @@ import generatePDF from "react-to-pdf"
 import CV from "./CV"
 import Information from "./Information"
 import Header from "./Header"
+import Personal from "./Personal"
 
 function Container() {
   const targetRef = useRef(null)
@@ -17,6 +18,7 @@ function Container() {
             Download PDF
           </button>
         </Header>
+        <Personal />
       </Information>
       <div className='cv-container' ref={targetRef}>
         <CV />

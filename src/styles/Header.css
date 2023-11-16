@@ -3,15 +3,38 @@
 .header {
   font-family: "Inter", sans-serif;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
   border: 1px solid black;
   background-color: inherit;
 }
 
 .header h1 {
-  background-color: blue;
-  color: white;
-  max-height: 4.5rem;
+  background-color: #e3f4f4;
+  color: black;
+  font-size: 2rem;
+  max-height: 5rem;
   padding: 1rem;
-  border-radius: 1.5rem;
+  border-radius: 1.3rem;
+  outline: none;
+  transition: ease 0.5s;
+  margin: 0.5rem;
+}
+
+.header h1:hover,
+.header button:hover {
+  background-color: #c4dfdf;
+  box-shadow: 0 0 1.5rem #c4dfdf;
+}
+
+.header button {
+  background-color: #e3f4f4;
+  color: black;
+  font: inherit;
+  font-weight: bold;
+  padding: 1rem;
+  height: 3rem;
+  border-radius: 1.3rem;
+  cursor: pointer;
+  transition: ease 0.5s;
 }
