@@ -10,8 +10,13 @@ interface InputChangeEvent extends ChangeEvent<HTMLInputElement> {
   }
 }
 
-function Personal() {
-  const [inputs, setInputs] = useState({ name: "", age: "" })
+function Personal({ childToParent }) {
+  const [inputs, setInputs] = useState({
+    name: "",
+    date: "",
+    email: "",
+    number: "",
+  })
   const [image, setImage] = useState(true)
   const [containerVisible, setContainerVisible] = useState(false)
 
@@ -41,27 +46,50 @@ function Personal() {
           <img onClick={handleInput} src={minimize} alt='minimize' />
         )}
       </header>
-      <form onSubmit={handleSubmit}>
+      <form id='personal' onSubmit={handleSubmit}>
         {containerVisible && (
-          <div className='input-container'>
-            <label>Enter your name</label>
+          <>
+            <div className='input-box'>
+              <input
+                type='text'
+                name='name'
+                value={inputs.name || ""}
+                onChange={handleChange}
+                placeholder='Name'
+              />
+
+              <input
+                type='date'
+                name='date'
+                value={inputs.date || ""}
+                onChange={handleChange}
+                placeholder='Birth Date'
+              />
+            </div>
+            <div className='input-box'>
+              <input
+                type='email'
+                name='email'
+                value={inputs.email || ""}
+                onChange={handleChange}
+                placeholder='Email'
+              />
+
+              <input
+                type='tel'
+                name='number'
+                value={inputs.number || ""}
+                onChange={handleChange}
+                placeholder='Phone Number'
+              />
+            </div>
             <input
-              type='text'
-              name='name'
-              value={inputs.name || ""}
-              onChange={handleChange}
-              placeholder='name'
+              onClick={() => childToParent(inputs)}
+              type='submit'
+              value='Submit'
+              className='button'
             />
-            <label>Age</label>
-            <input
-              type='number'
-              name='age'
-              value={inputs.age || ""}
-              onChange={handleChange}
-              placeholder='age'
-            />
-            <button type='submit'>CLICK</button>
-          </div>
+          </>
         )}
       </form>
     </section>
