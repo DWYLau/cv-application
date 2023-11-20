@@ -10,7 +10,15 @@ interface InputChangeEvent extends ChangeEvent<HTMLInputElement> {
   }
 }
 
-function Personal({ childToParent }) {
+interface ChildToParentFunction {
+  (data: { name: string; date: string; email: string; number: string }): void
+}
+
+interface PersonalProps {
+  childToParent: ChildToParentFunction
+}
+
+function Personal({ childToParent }: PersonalProps) {
   const [inputs, setInputs] = useState({
     name: "",
     date: "",
