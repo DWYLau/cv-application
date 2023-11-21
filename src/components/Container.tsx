@@ -5,22 +5,38 @@ import generatePDF, { Margin } from "react-to-pdf"
 import Information from "./Information"
 import Header from "./Header"
 import Personal from "./Personal"
+import Education from "./Education"
 import PersonalPreview from "./PersonalPreview"
+import EducationPreview from "./EducationPreview"
 
-interface Information {
+interface Personal {
   name: string
-  date: string
+  birthday: string
   email: string
   number: string
 }
 
-function Container() {
-  const [data, setData] = useState<Information | null>(null)
+interface Education {
+  school: string
+  study: string
+  startDate: string
+  endDate: string
+}
 
-  function childToParent(information: Information) {
-    setData(information)
-    console.log("DATA IS", data)
+function Container() {
+  const [personalInfo, setPersonalInfo] = useState<Personal | null>(null)
+  const [educationInfo, setEducationInfo] = useState<Education | null>(null)
+
+  function receivePersonal(information: Personal) {
+    setPersonalInfo(information)
+    console.log("DATA IS", personalInfo)
   }
+
+  function receiveEducation(information: Education) {
+    setEducationInfo(information)
+    console.log("DATA IS", personalInfo)
+  }
+
   const targetRef = useRef(null)
 
   return (
@@ -40,10 +56,12 @@ function Container() {
             Download
           </button>
         </Header>
-        <Personal childToParent={childToParent} />
+        <Personal receivePersonal={receivePersonal} />
+        <Education receiveEducation={receiveEducation} />
       </Information>
       <div className='cv-preview' ref={targetRef}>
-        <PersonalPreview personal={data} />
+        {personalInfo ? <PersonalPreview personal={personalInfo} /> : null}
+        {educationInfo ? <EducationPreview education={educationInfo} /> : null}
       </div>
     </div>
   )

@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Inter+Tight:wght@300&family=Oxygen&display=swap");
 
-#personal {
+#education {
   width: 595px;
   text-align: center;
   border-left: 15px solid #b4b7ba;
 }
 
-#personal .input-box {
+#education .input-box {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -14,7 +14,7 @@
   padding: 0.5rem 0.5rem 0 0.5rem;
 }
 
-#personal .input-box input {
+#education .input-box input {
   width: 240px;
   padding: 0.5rem;
   font-size: 1rem;
@@ -25,12 +25,12 @@
   transition: 0.5s ease;
 }
 
-#personal .input-box input:hover,
-#personal .button:hover {
+#education .input-box input:hover,
+#education .button:hover {
   box-shadow: 0 0 1rem #636568;
 }
 
-#personal .button {
+#education .button {
   margin: 0.7rem;
   padding: 0.7rem;
   height: 2.5rem;
@@ -42,6 +42,7 @@
 }
 
 .title {
+  font-family: "Inter", sans-serif;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -82,19 +83,6 @@
   box-shadow: 0 0 1.5rem #c4dfdf;
 }
 
-.input-box .input {
-  font-family: inherit;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 0.5rem;
-}
-
-.input label {
-  padding-left: 0.1rem;
-}
-
 section {
   background-color: #98b4d4;
-  font-family: "Inter", sans-serif;
 }

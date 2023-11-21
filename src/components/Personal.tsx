@@ -10,18 +10,23 @@ interface InputChangeEvent extends ChangeEvent<HTMLInputElement> {
   }
 }
 
-interface ChildToParentFunction {
-  (data: { name: string; date: string; email: string; number: string }): void
+interface InputData {
+  (data: {
+    name: string
+    birthday: string
+    email: string
+    number: string
+  }): void
 }
 
 interface PersonalProps {
-  childToParent: ChildToParentFunction
+  receivePersonal: InputData
 }
 
-function Personal({ childToParent }: PersonalProps) {
+function Personal({ receivePersonal }: PersonalProps) {
   const [inputs, setInputs] = useState({
     name: "",
-    date: "",
+    birthday: "",
     email: "",
     number: "",
   })
@@ -58,41 +63,53 @@ function Personal({ childToParent }: PersonalProps) {
         {containerVisible && (
           <>
             <div className='input-box'>
-              <input
-                type='text'
-                name='name'
-                value={inputs.name || ""}
-                onChange={handleChange}
-                placeholder='Name'
-              />
+              <div className='input'>
+                <label htmlFor='name'>Full Name</label>
+                <input
+                  type='text'
+                  name='name'
+                  value={inputs.name || ""}
+                  onChange={handleChange}
+                  placeholder='Name'
+                />
+              </div>
 
-              <input
-                type='date'
-                name='date'
-                value={inputs.date || ""}
-                onChange={handleChange}
-                placeholder='Birth Date'
-              />
+              <div className='input'>
+                <label htmlFor='birth-date'>Birth Date</label>
+                <input
+                  type='date'
+                  name='birthday'
+                  value={inputs.birthday || ""}
+                  onChange={handleChange}
+                  placeholder='Birth Date'
+                />
+              </div>
             </div>
             <div className='input-box'>
-              <input
-                type='email'
-                name='email'
-                value={inputs.email || ""}
-                onChange={handleChange}
-                placeholder='Email'
-              />
+              <div className='input'>
+                <label htmlFor='email'>Email Address</label>
+                <input
+                  type='email'
+                  name='email'
+                  value={inputs.email || ""}
+                  onChange={handleChange}
+                  placeholder='Email'
+                />
+              </div>
 
-              <input
-                type='tel'
-                name='number'
-                value={inputs.number || ""}
-                onChange={handleChange}
-                placeholder='Phone Number'
-              />
+              <div className='input'>
+                <label htmlFor='number'>Phone Number</label>
+                <input
+                  type='tel'
+                  name='number'
+                  value={inputs.number || ""}
+                  onChange={handleChange}
+                  placeholder='Phone Number'
+                />
+              </div>
             </div>
             <input
-              onClick={() => childToParent(inputs)}
+              onClick={() => receivePersonal(inputs)}
               type='submit'
               value='Submit'
               className='button'

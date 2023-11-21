@@ -1,17 +1,29 @@
 import "../styles/PersonalPreview.css"
 
-function PersonalPreview(props) {
+interface Information {
+  name: string
+  email: string
+  birthday: string
+  number: string
+}
+
+interface Personal {
+  personal: Information
+}
+
+function PersonalPreview(props: Personal) {
   const canPreview = props.personal
 
   return (
     <section className='personal-preview'>
-      <h1>Personal</h1>
       {canPreview && (
-        <div className='info'>
-          <p>{props.personal.name}</p>
-          <p>{props.personal.email}</p>
-          <p>{props.personal.date}</p>
-          <p>{props.personal.number}</p>
+        <div className='details'>
+          <h1>{props.personal.name}</h1>
+          <div className='add-details'>
+            <p>{props.personal.email}</p>
+            <p>{props.personal.birthday}</p>
+            <p>{props.personal.number}</p>
+          </div>
         </div>
       )}
     </section>
