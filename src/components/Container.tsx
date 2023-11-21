@@ -1,12 +1,11 @@
 import "../styles/Container.css"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import download from "../assets/download.svg"
-import { useRef } from "react"
 import generatePDF, { Margin } from "react-to-pdf"
-import CV from "./CV"
 import Information from "./Information"
 import Header from "./Header"
 import Personal from "./Personal"
+import PersonalPreview from "./PersonalPreview"
 
 interface Information {
   name: string
@@ -43,8 +42,8 @@ function Container() {
         </Header>
         <Personal childToParent={childToParent} />
       </Information>
-      <div className='cv-container' ref={targetRef}>
-        <CV />
+      <div className='cv-preview' ref={targetRef}>
+        <PersonalPreview personal={data} />
       </div>
     </div>
   )
