@@ -7,6 +7,6 @@
   margin: 2%;
   border: 3px solid black;
   background-color: white;
-  min-width: 595px;
-  min-height: 750px;
+  width: 45vw;
+  height: 90vh;
 }

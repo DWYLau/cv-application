@@ -31,7 +31,7 @@ function Education({ receiveEducation }: EducationProps) {
     endDate: "",
   })
   const [image, setImage] = useState(true)
-  const [containerVisible, setContainerVisible] = useState(false)
+  const [formVisible, setFormVisible] = useState(false)
 
   function handleChange(event: InputChangeEvent) {
     const name = event.target.name
@@ -45,7 +45,7 @@ function Education({ receiveEducation }: EducationProps) {
   }
 
   function handleInput() {
-    setContainerVisible(visible => !visible)
+    setFormVisible(visible => !visible)
     setImage(maximize => !maximize)
   }
 
@@ -60,41 +60,53 @@ function Education({ receiveEducation }: EducationProps) {
         )}
       </header>
       <form id='education' onSubmit={handleSubmit}>
-        {containerVisible && (
+        {formVisible && (
           <>
             <div className='input-box'>
-              <input
-                type='text'
-                name='school'
-                value={inputs.school || ""}
-                onChange={handleChange}
-                placeholder='Name of School'
-              />
-
-              <input
-                type='text'
-                name='study'
-                value={inputs.study || ""}
-                onChange={handleChange}
-                placeholder='Name of Study'
-              />
+              <div className='input'>
+                <label htmlFor='school'>Name of School</label>
+                <input
+                  type='text'
+                  name='school'
+                  value={inputs.school || ""}
+                  onChange={handleChange}
+                  placeholder='School'
+                />
+              </div>
+              <div className='input'>
+                <label htmlFor='study'>Name of Study</label>
+                <input
+                  type='text'
+                  name='study'
+                  value={inputs.study || ""}
+                  onChange={handleChange}
+                  placeholder='Study'
+                />
+              </div>
             </div>
-            <div className='input-box'>
-              <input
-                type='date'
-                name='startDate'
-                value={inputs.startDate || ""}
-                onChange={handleChange}
-                placeholder='Start Date'
-              />
 
-              <input
-                type='date'
-                name='endDate'
-                value={inputs.endDate || ""}
-                onChange={handleChange}
-                placeholder='End Date'
-              />
+            <div className='input-box'>
+              <div className='input'>
+                <label htmlFor='startDate'>Start Date</label>
+                <input
+                  type='date'
+                  name='startDate'
+                  value={inputs.startDate || ""}
+                  onChange={handleChange}
+                  placeholder='Start Date'
+                />
+              </div>
+
+              <div className='input'>
+                <label htmlFor='endDate'>End Date</label>
+                <input
+                  type='date'
+                  name='endDate'
+                  value={inputs.endDate || ""}
+                  onChange={handleChange}
+                  placeholder='End Date'
+                />
+              </div>
             </div>
             <input
               onClick={() => receiveEducation(inputs)}

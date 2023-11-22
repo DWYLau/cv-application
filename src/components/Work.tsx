@@ -1,39 +1,36 @@
-import "../styles/Personal.css"
 import maximize from "../assets/maximize.png"
 import minimize from "../assets/minimize.png"
 import { useState, ChangeEvent } from "react"
-
-interface InputChangeEvent extends ChangeEvent<HTMLInputElement> {
-  target: HTMLInputElement & {
-    name: string
-    value: string
-  }
-}
+import "../styles/Work.css"
 
 interface InputData {
   (data: {
-    name: string
-    birthday: string
-    email: string
-    number: string
+    company: string
+    position: string
+    description: string
+    startDate: string
+    endDate: string
   }): void
 }
 
-interface PersonalProps {
-  receivePersonal: InputData
+interface WorkProps {
+  receiveWork: InputData
 }
 
-function Personal({ receivePersonal }: PersonalProps) {
+function Work({ receiveWork }: WorkProps) {
   const [inputs, setInputs] = useState({
-    name: "",
-    birthday: "",
-    email: "",
-    number: "",
+    company: "",
+    position: "",
+    description: "",
+    startDate: "",
+    endDate: "",
   })
   const [image, setImage] = useState(true)
   const [formVisible, setFormVisible] = useState(false)
 
-  function handleChange(event: InputChangeEvent) {
+  function handleChange(
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
     const name = event.target.name
     const value = event.target.value
     setInputs(values => ({ ...values, [name]: value }))
@@ -52,68 +49,76 @@ function Personal({ receivePersonal }: PersonalProps) {
   return (
     <section>
       <header className='title'>
-        <h1>Personal Details</h1>
+        <h1>Work Details</h1>
         {image ? (
           <img onClick={handleInput} src={maximize} alt='maximize' />
         ) : (
           <img onClick={handleInput} src={minimize} alt='minimize' />
         )}
       </header>
-      <form id='personal' onSubmit={handleSubmit}>
+      <form id='work' onSubmit={handleSubmit}>
         {formVisible && (
           <>
             <div className='input-box'>
               <div className='input'>
-                <label htmlFor='name'>Full Name</label>
+                <label htmlFor='company'>Company</label>
                 <input
                   type='text'
-                  name='name'
-                  value={inputs.name || ""}
+                  name='company'
+                  value={inputs.company || ""}
                   onChange={handleChange}
                   placeholder='Name'
                 />
               </div>
 
               <div className='input'>
-                <label htmlFor='birth-date'>Birth Date</label>
+                <label htmlFor='position'>Position Title</label>
                 <input
-                  type='date'
-                  name='birthday'
-                  value={inputs.birthday || ""}
+                  type='text'
+                  name='position'
+                  value={inputs.position || ""}
                   onChange={handleChange}
-                  placeholder='Birth Date'
+                  placeholder='Position'
                 />
               </div>
             </div>
             <div className='input-box'>
               <div className='input'>
-                <label htmlFor='email'>Email Address</label>
+                <label htmlFor='startDate'>Start Date</label>
                 <input
-                  type='email'
-                  name='email'
-                  value={inputs.email || ""}
+                  type='date'
+                  name='startDate'
+                  value={inputs.startDate || ""}
                   onChange={handleChange}
-                  placeholder='Email'
+                  placeholder='Start Date'
                 />
               </div>
 
               <div className='input'>
-                <label htmlFor='number'>Phone Number</label>
+                <label htmlFor='endDate'>End Date</label>
                 <input
-                  type='tel'
-                  name='number'
-                  value={inputs.number || ""}
+                  type='date'
+                  name='endDate'
+                  value={inputs.endDate || ""}
                   onChange={handleChange}
-                  placeholder='Phone Number'
+                  placeholder='End Date'
                 />
               </div>
             </div>
-            <input
-              onClick={() => receivePersonal(inputs)}
-              type='submit'
-              value='Submit'
-              className='button'
-            />
+            <div className='add-inputs'>
+              <textarea
+                name='description'
+                value={inputs.description}
+                onChange={handleChange}
+              ></textarea>
+
+              <input
+                onClick={() => receiveWork(inputs)}
+                type='submit'
+                value='Submit'
+                className='button'
+              />
+            </div>
           </>
         )}
       </form>
@@ -121,4 +126,4 @@ function Personal({ receivePersonal }: PersonalProps) {
   )
 }
 
-export default Personal
+export default Work

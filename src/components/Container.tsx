@@ -6,6 +6,7 @@ import Information from "./Information"
 import Header from "./Header"
 import Personal from "./Personal"
 import Education from "./Education"
+import Work from "./Work"
 import PersonalPreview from "./PersonalPreview"
 import EducationPreview from "./EducationPreview"
 
@@ -23,9 +24,18 @@ interface Education {
   endDate: string
 }
 
+interface Work {
+  company: string
+  position: string
+  description: string
+  startDate: string
+  endDate: string
+}
+
 function Container() {
   const [personalInfo, setPersonalInfo] = useState<Personal | null>(null)
   const [educationInfo, setEducationInfo] = useState<Education | null>(null)
+  const [workInfo, setWorkInfo] = useState<Work | null>(null)
 
   function receivePersonal(information: Personal) {
     setPersonalInfo(information)
@@ -35,6 +45,11 @@ function Container() {
   function receiveEducation(information: Education) {
     setEducationInfo(information)
     console.log("DATA IS", personalInfo)
+  }
+
+  function receiveWork(information: Work) {
+    setWorkInfo(information)
+    console.log("WORK IS", information)
   }
 
   const targetRef = useRef(null)
@@ -58,6 +73,7 @@ function Container() {
         </Header>
         <Personal receivePersonal={receivePersonal} />
         <Education receiveEducation={receiveEducation} />
+        <Work receiveWork={receiveWork} />
       </Information>
       <div className='cv-preview' ref={targetRef}>
         {personalInfo ? <PersonalPreview personal={personalInfo} /> : null}

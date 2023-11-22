@@ -18,11 +18,17 @@ function EducationPreview(props: Education) {
     <section className='education-preview'>
       {canPreview && (
         <div className='details'>
+          <h1>Education Details</h1>
           <div className='add-details'>
-            <p>{props.education.school}</p>
-            <p>{props.education.study}</p>
-            <p>{props.education.startDate}</p>
-            <p>{props.education.endDate}</p>
+            <div className='school-info'>
+              <p>
+                <b>{props.education.school}</b>
+              </p>
+              <p>{props.education.study}</p>
+            </div>
+            <p>
+              {props.education.startDate} - {props.education.endDate}
+            </p>
           </div>
         </div>
       )}
