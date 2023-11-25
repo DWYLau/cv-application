@@ -1,7 +1,7 @@
-import maximize from "../../public/assets/maximize.png"
-import minimize from "../../public/assets/minimize.png"
-import { useState, ChangeEvent } from "react"
 import "../styles/Work.css"
+import { useState, ChangeEvent } from "react"
+import maximize from "../assets/maximize.png"
+import minimize from "../assets/minimize.png"
 
 interface Data {
   (data: {

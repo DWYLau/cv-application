@@ -1,6 +1,6 @@
 import "../styles/Personal.css"
-import maximize from "../../public/assets/maximize.png"
-import minimize from "../../public/assets/minimize.png"
+import maximize from "../assets/maximize.png"
+import minimize from "../assets/minimize.png"
 import { useState, ChangeEvent } from "react"
 
 interface InputChangeEvent extends ChangeEvent<HTMLInputElement> {

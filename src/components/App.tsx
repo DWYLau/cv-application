@@ -1,6 +1,6 @@
 import "../styles/App.css"
 import { useState, useRef } from "react"
-import download from "../../public/assets/download.svg"
+import download from "../assets/download.svg"
 import generatePDF, { Margin } from "react-to-pdf"
 import Information from "./Information"
 import Header from "./Header"
