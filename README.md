@@ -1,27 +1,35 @@
-# React + TypeScript + Vite
+# Project - CV Application React TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About
 
-Currently, two official plugins are available:
+CV Application React TypeScript
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Aims
 
-## Expanding the ESLint configuration
+1. Review how to create and set up a React project.
+2. Maintain and manipulate State using useState hooks.
+3. Learn how to pass data from and to parent/child components.
+4. Learn how to declare Interfaces for React states, functions and props.
+5. Learn and review how to make HTML forms in React.
+6. Learn how to export a React component to a PDF document.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Languages
 
-- Configure the top-level `parserOptions` property like this:
+- HTML
+- CSS
+- JavaScript/JSX
+- TypeScript/TSX
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Tools & Libraries
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- React
+- React-to-PDF
+
+## Attritute
+
+- Download icon created by Font Awesome / Iconscout
+- Maximize/Minimize icon designed by IYAHICON / Flaticon
+
+## Live Preview
+
+https://unique-basbousa-54b7ca.netlify.app/

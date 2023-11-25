@@ -1,4 +1,4 @@
-import "../styles/Container.css"
+import "../styles/App.css"
 import { useState, useRef } from "react"
 import download from "../assets/download.svg"
 import generatePDF, { Margin } from "react-to-pdf"
@@ -33,24 +33,21 @@ interface Work {
   endDate: string
 }
 
-function Container() {
-  const [personalInfo, setPersonalInfo] = useState<Personal | null>(null)
-  const [educationInfo, setEducationInfo] = useState<Education | null>(null)
-  const [workInfo, setWorkInfo] = useState<Work | null>(null)
+function App() {
+  const [personal, setPersonal] = useState<Personal | null>(null)
+  const [education, setEducation] = useState<Education | null>(null)
+  const [work, setWork] = useState<Work | null>(null)
 
-  function receivePersonal(information: Personal) {
-    setPersonalInfo(information)
-    console.log("DATA IS", personalInfo)
+  function getPersonal(information: Personal) {
+    setPersonal(information)
   }
 
-  function receiveEducation(information: Education) {
-    setEducationInfo(information)
-    console.log("DATA IS", personalInfo)
+  function getEducation(information: Education) {
+    setEducation(information)
   }
 
-  function receiveWork(information: Work) {
-    setWorkInfo(information)
-    console.log("WORK IS", information)
+  function getWork(information: Work) {
+    setWork(information)
   }
 
   const targetRef = useRef(null)
@@ -72,17 +69,17 @@ function Container() {
             Download
           </button>
         </Header>
-        <Personal receivePersonal={receivePersonal} />
-        <Education receiveEducation={receiveEducation} />
-        <Work receiveWork={receiveWork} />
+        <Personal getPersonal={getPersonal} />
+        <Education getEducation={getEducation} />
+        <Work getWork={getWork} />
       </Information>
       <div className='cv-preview' ref={targetRef}>
-        {personalInfo ? <PersonalPreview personal={personalInfo} /> : null}
-        {educationInfo ? <EducationPreview education={educationInfo} /> : null}
-        {workInfo ? <WorkPreview work={workInfo} /> : null}
+        {personal ? <PersonalPreview personal={personal} /> : null}
+        {education ? <EducationPreview education={education} /> : null}
+        {work ? <WorkPreview work={work} /> : null}
       </div>
     </div>
   )
 }
 
-export default Container
+export default App

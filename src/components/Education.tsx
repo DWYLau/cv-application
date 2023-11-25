@@ -10,7 +10,7 @@ interface InputChangeEvent extends ChangeEvent<HTMLInputElement> {
   }
 }
 
-interface InputData {
+interface Data {
   (data: {
     school: string
     study: string
@@ -20,10 +20,10 @@ interface InputData {
 }
 
 interface EducationProps {
-  receiveEducation: InputData
+  getEducation: Data
 }
 
-function Education({ receiveEducation }: EducationProps) {
+function Education({ getEducation }: EducationProps) {
   const [inputs, setInputs] = useState({
     school: "",
     study: "",
@@ -41,7 +41,6 @@ function Education({ receiveEducation }: EducationProps) {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    console.log(inputs)
   }
 
   function handleInput() {
@@ -109,7 +108,7 @@ function Education({ receiveEducation }: EducationProps) {
               </div>
             </div>
             <input
-              onClick={() => receiveEducation(inputs)}
+              onClick={() => getEducation(inputs)}
               type='submit'
               value='Submit'
               className='button'

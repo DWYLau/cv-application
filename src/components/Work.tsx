@@ -3,7 +3,7 @@ import minimize from "../assets/minimize.png"
 import { useState, ChangeEvent } from "react"
 import "../styles/Work.css"
 
-interface InputData {
+interface Data {
   (data: {
     company: string
     position: string
@@ -14,10 +14,10 @@ interface InputData {
 }
 
 interface WorkProps {
-  receiveWork: InputData
+  getWork: Data
 }
 
-function Work({ receiveWork }: WorkProps) {
+function Work({ getWork }: WorkProps) {
   const [inputs, setInputs] = useState({
     company: "",
     position: "",
@@ -38,7 +38,6 @@ function Work({ receiveWork }: WorkProps) {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    console.log(inputs)
   }
 
   function handleInput() {
@@ -113,7 +112,7 @@ function Work({ receiveWork }: WorkProps) {
               ></textarea>
 
               <input
-                onClick={() => receiveWork(inputs)}
+                onClick={() => getWork(inputs)}
                 type='submit'
                 value='Submit'
                 className='button'

@@ -10,7 +10,7 @@ interface InputChangeEvent extends ChangeEvent<HTMLInputElement> {
   }
 }
 
-interface InputData {
+interface Data {
   (data: {
     name: string
     birthday: string
@@ -20,10 +20,10 @@ interface InputData {
 }
 
 interface PersonalProps {
-  receivePersonal: InputData
+  getPersonal: Data
 }
 
-function Personal({ receivePersonal }: PersonalProps) {
+function Personal({ getPersonal }: PersonalProps) {
   const [inputs, setInputs] = useState({
     name: "",
     birthday: "",
@@ -41,7 +41,6 @@ function Personal({ receivePersonal }: PersonalProps) {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    console.log(inputs)
   }
 
   function handleInput() {
@@ -85,6 +84,7 @@ function Personal({ receivePersonal }: PersonalProps) {
                 />
               </div>
             </div>
+
             <div className='input-box'>
               <div className='input'>
                 <label htmlFor='email'>Email Address</label>
@@ -109,7 +109,7 @@ function Personal({ receivePersonal }: PersonalProps) {
               </div>
             </div>
             <input
-              onClick={() => receivePersonal(inputs)}
+              onClick={() => getPersonal(inputs)}
               type='submit'
               value='Submit'
               className='button'
