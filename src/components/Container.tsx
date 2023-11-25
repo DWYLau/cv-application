@@ -9,6 +9,7 @@ import Education from "./Education"
 import Work from "./Work"
 import PersonalPreview from "./PersonalPreview"
 import EducationPreview from "./EducationPreview"
+import WorkPreview from "./WorkPreview"
 
 interface Personal {
   name: string
@@ -78,6 +79,7 @@ function Container() {
       <div className='cv-preview' ref={targetRef}>
         {personalInfo ? <PersonalPreview personal={personalInfo} /> : null}
         {educationInfo ? <EducationPreview education={educationInfo} /> : null}
+        {workInfo ? <WorkPreview work={workInfo} /> : null}
       </div>
     </div>
   )

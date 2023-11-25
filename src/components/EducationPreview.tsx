@@ -18,7 +18,7 @@ function EducationPreview(props: Education) {
     <section className='education-preview'>
       {canPreview && (
         <div className='details'>
-          <h1>Education Details</h1>
+          <h1>Education</h1>
           <div className='add-details'>
             <div className='school-info'>
               <p>
