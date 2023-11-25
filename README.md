@@ -1,8 +1,8 @@
-# Project - CV Application React TypeScript
+# Project - CV Application
 
 ## About
 
-CV Application React TypeScript
+CV Application for The Odin Project
 
 ## Aims
 
@@ -17,13 +17,13 @@ CV Application React TypeScript
 
 - HTML
 - CSS
-- JavaScript/JSX
-- TypeScript/TSX
+- TypeScript
 
 ## Tools & Libraries
 
 - React
 - React-to-PDF
+- Vite
 
 ## Attritute
 

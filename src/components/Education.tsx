@@ -1,6 +1,6 @@
 import "../styles/Education.css"
-import maximize from "../assets/maximize.png"
-import minimize from "../assets/minimize.png"
+import maximize from "../../public/assets/maximize.png"
+import minimize from "../../public/assets/minimize.png"
 import { useState, ChangeEvent } from "react"
 
 interface InputChangeEvent extends ChangeEvent<HTMLInputElement> {
@@ -65,21 +65,25 @@ function Education({ getEducation }: EducationProps) {
               <div className='input'>
                 <label htmlFor='school'>Name of School</label>
                 <input
+                  id='school'
                   type='text'
                   name='school'
                   value={inputs.school || ""}
                   onChange={handleChange}
                   placeholder='School'
+                  required
                 />
               </div>
               <div className='input'>
                 <label htmlFor='study'>Name of Study</label>
                 <input
+                  id='study'
                   type='text'
                   name='study'
                   value={inputs.study || ""}
                   onChange={handleChange}
                   placeholder='Study'
+                  required
                 />
               </div>
             </div>
@@ -88,22 +92,26 @@ function Education({ getEducation }: EducationProps) {
               <div className='input'>
                 <label htmlFor='startDate'>Start Date</label>
                 <input
+                  id='startDate'
                   type='date'
                   name='startDate'
                   value={inputs.startDate || ""}
                   onChange={handleChange}
                   placeholder='Start Date'
+                  required
                 />
               </div>
 
               <div className='input'>
                 <label htmlFor='endDate'>End Date</label>
                 <input
+                  id='endDate'
                   type='date'
                   name='endDate'
                   value={inputs.endDate || ""}
                   onChange={handleChange}
                   placeholder='End Date'
+                  required
                 />
               </div>
             </div>

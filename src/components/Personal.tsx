@@ -1,6 +1,6 @@
 import "../styles/Personal.css"
-import maximize from "../assets/maximize.png"
-import minimize from "../assets/minimize.png"
+import maximize from "../../public/assets/maximize.png"
+import minimize from "../../public/assets/minimize.png"
 import { useState, ChangeEvent } from "react"
 
 interface InputChangeEvent extends ChangeEvent<HTMLInputElement> {
@@ -65,22 +65,26 @@ function Personal({ getPersonal }: PersonalProps) {
               <div className='input'>
                 <label htmlFor='name'>Full Name</label>
                 <input
+                  id='name'
                   type='text'
                   name='name'
                   value={inputs.name || ""}
                   onChange={handleChange}
                   placeholder='Name'
+                  required
                 />
               </div>
 
               <div className='input'>
                 <label htmlFor='birth-date'>Birth Date</label>
                 <input
+                  id='birth-date'
                   type='date'
                   name='birthday'
                   value={inputs.birthday || ""}
                   onChange={handleChange}
                   placeholder='Birth Date'
+                  required
                 />
               </div>
             </div>
@@ -89,22 +93,26 @@ function Personal({ getPersonal }: PersonalProps) {
               <div className='input'>
                 <label htmlFor='email'>Email Address</label>
                 <input
+                  id='email'
                   type='email'
                   name='email'
                   value={inputs.email || ""}
                   onChange={handleChange}
                   placeholder='Email'
+                  required
                 />
               </div>
 
               <div className='input'>
                 <label htmlFor='number'>Phone Number</label>
                 <input
+                  id='number'
                   type='tel'
                   name='number'
                   value={inputs.number || ""}
                   onChange={handleChange}
                   placeholder='Phone Number'
+                  required
                 />
               </div>
             </div>

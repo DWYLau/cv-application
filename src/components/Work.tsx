@@ -1,5 +1,5 @@
-import maximize from "../assets/maximize.png"
-import minimize from "../assets/minimize.png"
+import maximize from "../../public/assets/maximize.png"
+import minimize from "../../public/assets/minimize.png"
 import { useState, ChangeEvent } from "react"
 import "../styles/Work.css"
 
@@ -62,22 +62,26 @@ function Work({ getWork }: WorkProps) {
               <div className='input'>
                 <label htmlFor='company'>Company</label>
                 <input
+                  id='company'
                   type='text'
                   name='company'
                   value={inputs.company || ""}
                   onChange={handleChange}
                   placeholder='Name'
+                  required
                 />
               </div>
 
               <div className='input'>
                 <label htmlFor='position'>Position Title</label>
                 <input
+                  id='position'
                   type='text'
                   name='position'
                   value={inputs.position || ""}
                   onChange={handleChange}
                   placeholder='Position'
+                  required
                 />
               </div>
             </div>
@@ -85,30 +89,37 @@ function Work({ getWork }: WorkProps) {
               <div className='input'>
                 <label htmlFor='startDate'>Start Date</label>
                 <input
+                  id='startDate'
                   type='date'
                   name='startDate'
                   value={inputs.startDate || ""}
                   onChange={handleChange}
                   placeholder='Start Date'
+                  required
                 />
               </div>
 
               <div className='input'>
                 <label htmlFor='endDate'>End Date</label>
                 <input
+                  id='endDate'
                   type='date'
                   name='endDate'
                   value={inputs.endDate || ""}
                   onChange={handleChange}
                   placeholder='End Date'
+                  required
                 />
               </div>
             </div>
             <div className='add-inputs'>
+              <label htmlFor='description'>Summary</label>
               <textarea
+                id='description'
                 name='description'
                 value={inputs.description}
                 onChange={handleChange}
+                required
               ></textarea>
 
               <input

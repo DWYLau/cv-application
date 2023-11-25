@@ -14,14 +14,6 @@
   padding: 1rem 1rem 0 1rem;
 }
 
-.work h1 {
-  background-color: white;
-  padding: 1rem;
-  font-size: 2rem;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
 .work .add-details {
   width: 100%;
   display: flex;
@@ -31,7 +23,6 @@
   padding: 0.3rem 1rem 1rem 1rem;
   font-size: 1.5rem;
 }
-
 .description {
   padding: 0.3rem 1rem 1rem 1rem;
   font-size: 1.1rem;
