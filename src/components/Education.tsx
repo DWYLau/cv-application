@@ -37,6 +37,23 @@ function Education({ getEducation }: EducationProps) {
     const name = event.target.name
     const value = event.target.value
     setInputs(values => ({ ...values, [name]: value }))
+
+    if (name === "startDate") {
+      if (value > inputs.endDate) {
+        setInputs(prevInputs => ({
+          ...prevInputs,
+          endDate: value,
+        }))
+      }
+    }
+    if (name === "endDate") {
+      if (value < inputs.startDate) {
+        setInputs(prevInputs => ({
+          ...prevInputs,
+          startDate: value,
+        }))
+      }
+    }
   }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -111,6 +128,7 @@ function Education({ getEducation }: EducationProps) {
                   value={inputs.endDate || ""}
                   onChange={handleChange}
                   placeholder='End Date'
+                  min={inputs.startDate}
                   required
                 />
               </div>

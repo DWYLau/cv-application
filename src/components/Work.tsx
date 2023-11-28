@@ -34,6 +34,23 @@ function Work({ getWork }: WorkProps) {
     const name = event.target.name
     const value = event.target.value
     setInputs(values => ({ ...values, [name]: value }))
+
+    if (name === "startDate") {
+      if (value > inputs.endDate) {
+        setInputs(prevInputs => ({
+          ...prevInputs,
+          endDate: value,
+        }))
+      }
+    }
+    if (name === "endDate") {
+      if (value < inputs.startDate) {
+        setInputs(prevInputs => ({
+          ...prevInputs,
+          startDate: value,
+        }))
+      }
+    }
   }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -106,6 +123,7 @@ function Work({ getWork }: WorkProps) {
                   type='date'
                   name='endDate'
                   value={inputs.endDate || ""}
+                  min={inputs.startDate}
                   onChange={handleChange}
                   placeholder='End Date'
                   required

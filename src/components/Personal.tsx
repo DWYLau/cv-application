@@ -112,6 +112,7 @@ function Personal({ getPersonal }: PersonalProps) {
                   value={inputs.number || ""}
                   onChange={handleChange}
                   placeholder='Phone Number'
+                  maxLength={15}
                   required
                 />
               </div>
