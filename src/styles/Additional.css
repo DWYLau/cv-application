@@ -45,3 +45,8 @@
   cursor: pointer;
   transition: ease 0.5s;
 }
+
+.input-box input:hover,
+.button-box button:hover {
+  box-shadow: 0 0 1rem #636568;
+}
