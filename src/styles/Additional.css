@@ -1,0 +1,47 @@
+#additional {
+  width: 595px;
+  text-align: center;
+  border-left: 15px solid #b4b7ba;
+}
+
+#additional .input-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  margin-top: 0.2rem;
+}
+
+#additional .input-box label {
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+
+#additional .input-box input {
+  width: 350px;
+  padding: 0.4rem;
+  font-size: 1rem;
+  color: black;
+  background: white;
+  border-radius: 0.2rem;
+  margin: 0.5rem;
+  transition: 0.5s ease;
+}
+
+#additional .button-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-box button {
+  margin: 0.7rem;
+  padding: 0.7rem;
+  height: 2.5rem;
+  width: 5rem;
+  font-size: 1.2rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: ease 0.5s;
+}

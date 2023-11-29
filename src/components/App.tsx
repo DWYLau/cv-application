@@ -7,6 +7,7 @@ import Header from "./Header"
 import Personal from "./Personal"
 import Education from "./Education"
 import Work from "./Work"
+import Additional from "./Additional"
 import PersonalPreview from "./PersonalPreview"
 import EducationPreview from "./EducationPreview"
 import WorkPreview from "./WorkPreview"
@@ -72,6 +73,7 @@ function App() {
         <Personal getPersonal={getPersonal} />
         <Education getEducation={getEducation} />
         <Work getWork={getWork} />
+        <Additional />
       </Information>
       <div className='cv-preview' ref={targetRef}>
         {personal ? <PersonalPreview personal={personal} /> : null}
