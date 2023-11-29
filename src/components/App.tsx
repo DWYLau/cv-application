@@ -34,10 +34,16 @@ interface Work {
   endDate: string
 }
 
+interface Additional {
+  id: number
+  value: string
+}
+
 function App() {
   const [personal, setPersonal] = useState<Personal | null>(null)
   const [education, setEducation] = useState<Education | null>(null)
   const [work, setWork] = useState<Work | null>(null)
+  const [additional, setAdditional] = useState<Additional[] | null>(null)
 
   function getPersonal(information: Personal) {
     setPersonal(information)
@@ -49,6 +55,12 @@ function App() {
 
   function getWork(information: Work) {
     setWork(information)
+  }
+
+  function getAdditional(information: Additional[]) {
+    setAdditional(information)
+    console.log("INFORMATION IS", information)
+    console.log(additional)
   }
 
   const targetRef = useRef(null)
@@ -73,7 +85,7 @@ function App() {
         <Personal getPersonal={getPersonal} />
         <Education getEducation={getEducation} />
         <Work getWork={getWork} />
-        <Additional />
+        <Additional getAdditional={getAdditional} />
       </Information>
       <div className='cv-preview' ref={targetRef}>
         {personal ? <PersonalPreview personal={personal} /> : null}

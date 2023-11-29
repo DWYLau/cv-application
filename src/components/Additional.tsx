@@ -10,9 +10,16 @@ interface InputChangeEvent extends ChangeEvent<HTMLInputElement> {
   }
 }
 
-function Additional() {
+type GetAdditional = (information: { id: number; value: string }[]) => void
+
+interface AdditionalProps {
+  getAdditional: GetAdditional
+}
+
+function Additional({ getAdditional }: AdditionalProps) {
   const [inputValue, setInputValue] = useState("")
-  const [inputs, setInputs] = useState<string[]>([])
+  const [inputs, setInputs] = useState<{ id: number; value: string }[]>([])
+  const [nextID, setNextID] = useState(0)
   const [image, setImage] = useState(true)
   const [formVisible, setFormVisible] = useState(false)
 
@@ -27,8 +34,18 @@ function Additional() {
   }
 
   function handleAdd() {
-    setInputs(prevInputs => [...prevInputs, inputValue])
-    setInputValue("")
+    if (inputValue !== "") {
+      const newInput = { id: nextID, value: inputValue }
+      setInputs(prevInputs => [...prevInputs, newInput])
+      setInputValue("")
+      setNextID(prevID => prevID + 1)
+      getAdditional(inputs)
+    }
+  }
+
+  function handleReset() {
+    setInputs([])
+    setNextID(0)
   }
 
   function showForm() {
@@ -69,7 +86,12 @@ function Additional() {
               >
                 Add
               </button>
-              <button type='reset' value='Reset' className='button'>
+              <button
+                onClick={handleReset}
+                type='reset'
+                value='Reset'
+                className='button'
+              >
                 Reset
               </button>
             </div>
