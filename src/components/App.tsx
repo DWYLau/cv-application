@@ -11,6 +11,7 @@ import Additional from "./Additional"
 import PersonalPreview from "./PersonalPreview"
 import EducationPreview from "./EducationPreview"
 import WorkPreview from "./WorkPreview"
+import AdditionalPreview from "./AdditionalPreview"
 
 interface Personal {
   name: string
@@ -91,6 +92,7 @@ function App() {
         {personal ? <PersonalPreview personal={personal} /> : null}
         {education ? <EducationPreview education={education} /> : null}
         {work ? <WorkPreview work={work} /> : null}
+        {additional ? <AdditionalPreview additional={additional} /> : null}
       </div>
     </div>
   )

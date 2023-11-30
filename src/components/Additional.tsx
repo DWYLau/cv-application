@@ -10,15 +10,18 @@ interface InputChangeEvent extends ChangeEvent<HTMLInputElement> {
   }
 }
 
-type GetAdditional = (information: { id: number; value: string }[]) => void
-
 interface AdditionalProps {
-  getAdditional: GetAdditional
+  getAdditional: (information: { id: number; value: string }[]) => void
+}
+
+interface AdditionalInfo {
+  id: number
+  value: string
 }
 
 function Additional({ getAdditional }: AdditionalProps) {
   const [inputValue, setInputValue] = useState("")
-  const [inputs, setInputs] = useState<{ id: number; value: string }[]>([])
+  const [inputs, setInputs] = useState<AdditionalInfo[]>([])
   const [nextID, setNextID] = useState(0)
   const [image, setImage] = useState(true)
   const [formVisible, setFormVisible] = useState(false)
@@ -34,8 +37,8 @@ function Additional({ getAdditional }: AdditionalProps) {
   }
 
   function handleAdd() {
-    if (inputValue !== "") {
-      const newInput = { id: nextID, value: inputValue }
+    if (inputValue.trim() !== "") {
+      const newInput: AdditionalInfo = { id: nextID, value: inputValue }
       setInputs(prevInputs => [...prevInputs, newInput])
       setInputValue("")
       setNextID(prevID => prevID + 1)
