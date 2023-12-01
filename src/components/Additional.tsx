@@ -1,5 +1,5 @@
 import "../styles/Additional.css"
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useState, useEffect } from "react"
 import maximize from "../assets/maximize.png"
 import minimize from "../assets/minimize.png"
 
@@ -26,6 +26,10 @@ function Additional({ getAdditional }: AdditionalProps) {
   const [image, setImage] = useState(true)
   const [formVisible, setFormVisible] = useState(false)
 
+  useEffect(() => {
+    getAdditional(inputs)
+  }, [inputs, getAdditional])
+
   function handleChange(event: InputChangeEvent) {
     const value = event.target.value
     setInputValue(value)
@@ -33,7 +37,6 @@ function Additional({ getAdditional }: AdditionalProps) {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    console.log(inputs)
   }
 
   function handleAdd() {
@@ -42,7 +45,7 @@ function Additional({ getAdditional }: AdditionalProps) {
       setInputs(prevInputs => [...prevInputs, newInput])
       setInputValue("")
       setNextID(prevID => prevID + 1)
-      getAdditional(inputs)
+      console.log(inputs)
     }
   }
 
@@ -82,7 +85,10 @@ function Additional({ getAdditional }: AdditionalProps) {
             </div>
             <div className='button-box'>
               <button
-                onClick={handleAdd}
+                onClick={() => {
+                  handleAdd()
+                  getAdditional(inputs)
+                }}
                 type='submit'
                 value='Submit'
                 className='button'

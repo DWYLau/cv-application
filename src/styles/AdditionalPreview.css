@@ -1,0 +1,11 @@
+.additional-preview {
+  background-color: white;
+}
+
+.additional-preview h1 {
+  background-color: white;
+  padding: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
