@@ -12,11 +12,11 @@ interface Education {
 }
 
 function EducationPreview(props: Education) {
-  const canPreview = props.education
+  const hasEducation = props.education
 
   return (
     <section className='education-preview'>
-      {canPreview && (
+      {hasEducation && (
         <div className='details'>
           <h1>Education</h1>
           <div className='add-details'>

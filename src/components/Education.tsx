@@ -60,7 +60,7 @@ function Education({ getEducation }: EducationProps) {
     event.preventDefault()
   }
 
-  function handleInput() {
+  function showForm() {
     setFormVisible(visible => !visible)
     setImage(maximize => !maximize)
   }
@@ -70,9 +70,9 @@ function Education({ getEducation }: EducationProps) {
       <header className='title'>
         <h1>Education Details</h1>
         {image ? (
-          <img onClick={handleInput} src={maximize} alt='maximize' />
+          <img onClick={showForm} src={maximize} alt='maximize' />
         ) : (
-          <img onClick={handleInput} src={minimize} alt='minimize' />
+          <img onClick={showForm} src={minimize} alt='minimize' />
         )}
       </header>
       <form id='education' onSubmit={handleSubmit}>

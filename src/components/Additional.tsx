@@ -74,6 +74,7 @@ function Additional({ getAdditional }: AdditionalProps) {
           <>
             <div className='input-box'>
               <label htmlFor='extra'>Add Extra Information</label>
+              <p>(Max - 5 Bullet Points)</p>
               <input
                 id='extra'
                 name='extra'

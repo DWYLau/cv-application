@@ -5,8 +5,10 @@ interface Additional {
 }
 
 function AdditionalPreview(props: Additional) {
-  const hasAdditional = props.additional
-  console.log(props.additional)
+  const hasAdditional =
+    props.additional &&
+    props.additional.length > 0 &&
+    props.additional.length < 6
 
   return (
     <section className='additional-preview'>

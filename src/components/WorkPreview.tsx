@@ -13,11 +13,11 @@ interface Work {
 }
 
 function WorkPreview(props: Work) {
-  const canPreview = props.work
+  const hasWork = props.work
 
   return (
     <section className='work-preview'>
-      {canPreview && (
+      {hasWork && (
         <div className='details'>
           <h1>Experience</h1>
           <div className='add-details'>

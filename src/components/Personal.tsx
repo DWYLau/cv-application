@@ -43,7 +43,7 @@ function Personal({ getPersonal }: PersonalProps) {
     event.preventDefault()
   }
 
-  function handleInput() {
+  function showForm() {
     setFormVisible(visible => !visible)
     setImage(maximize => !maximize)
   }
@@ -53,9 +53,9 @@ function Personal({ getPersonal }: PersonalProps) {
       <header className='title'>
         <h1>Personal Details</h1>
         {image ? (
-          <img onClick={handleInput} src={maximize} alt='maximize' />
+          <img onClick={showForm} src={maximize} alt='maximize' />
         ) : (
-          <img onClick={handleInput} src={minimize} alt='minimize' />
+          <img onClick={showForm} src={minimize} alt='minimize' />
         )}
       </header>
       <form id='personal' onSubmit={handleSubmit}>

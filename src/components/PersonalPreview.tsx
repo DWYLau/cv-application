@@ -12,11 +12,11 @@ interface Personal {
 }
 
 function PersonalPreview(props: Personal) {
-  const canPreview = props.personal
+  const hasPersonal = props.personal
 
   return (
     <section className='personal-preview'>
-      {canPreview && (
+      {hasPersonal && (
         <div className='details'>
           <h1>{props.personal.name}</h1>
           <div className='add-details'>

@@ -57,7 +57,7 @@ function Work({ getWork }: WorkProps) {
     event.preventDefault()
   }
 
-  function handleInput() {
+  function showForm() {
     setFormVisible(visible => !visible)
     setImage(maximize => !maximize)
   }
@@ -67,9 +67,9 @@ function Work({ getWork }: WorkProps) {
       <header className='title'>
         <h1>Work Details</h1>
         {image ? (
-          <img onClick={handleInput} src={maximize} alt='maximize' />
+          <img onClick={showForm} src={maximize} alt='maximize' />
         ) : (
-          <img onClick={handleInput} src={minimize} alt='minimize' />
+          <img onClick={showForm} src={minimize} alt='minimize' />
         )}
       </header>
       <form id='work' onSubmit={handleSubmit}>
