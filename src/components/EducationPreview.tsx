@@ -13,6 +13,27 @@ interface Education {
 
 function EducationPreview(props: Education) {
   const hasEducation = props.education
+  const startDate = new Date(props.education.startDate)
+  const endDate = new Date(props.education.endDate)
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ]
+  const [startMonth, startYear] = [
+    startDate.getMonth(),
+    startDate.getFullYear(),
+  ]
+  const [endMonth, endYear] = [endDate.getMonth(), endDate.getFullYear()]
 
   return (
     <section className='education-preview'>
@@ -27,7 +48,7 @@ function EducationPreview(props: Education) {
               <p>{props.education.study}</p>
             </div>
             <p>
-              {props.education.startDate} - {props.education.endDate}
+              {months[startMonth]} {startYear} - {months[endMonth]} {endYear}
             </p>
           </div>
         </div>

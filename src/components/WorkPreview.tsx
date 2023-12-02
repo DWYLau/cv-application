@@ -14,6 +14,27 @@ interface Work {
 
 function WorkPreview(props: Work) {
   const hasWork = props.work
+  const startDate = new Date(props.work.startDate)
+  const endDate = new Date(props.work.endDate)
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ]
+  const [startMonth, startYear] = [
+    startDate.getMonth(),
+    startDate.getFullYear(),
+  ]
+  const [endMonth, endYear] = [endDate.getMonth(), endDate.getFullYear()]
 
   return (
     <section className='work-preview'>
@@ -28,7 +49,7 @@ function WorkPreview(props: Work) {
               <p>{props.work.position}</p>
             </div>
             <p>
-              {props.work.startDate} - {props.work.endDate}
+              {months[startMonth]} {startYear}- {months[endMonth]} {endYear}
             </p>
           </div>
           <p className='description'>{props.work.description}</p>

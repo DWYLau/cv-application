@@ -40,12 +40,14 @@ function Additional({ getAdditional }: AdditionalProps) {
   }
 
   function handleAdd() {
-    if (inputValue.trim() !== "") {
+    if (inputValue.trim() !== "" && inputs.length < 6) {
       const newInput: AdditionalInfo = { id: nextID, value: inputValue }
       setInputs(prevInputs => [...prevInputs, newInput])
       setInputValue("")
       setNextID(prevID => prevID + 1)
-      console.log(inputs)
+    }
+    if (inputs.length >= 5) {
+      handleReset()
     }
   }
 

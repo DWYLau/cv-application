@@ -1,4 +1,7 @@
 import "../styles/PersonalPreview.css"
+import email from "../assets/email.png"
+import date from "../assets/calendar.png"
+import phone from "../assets/phone.png"
 
 interface Information {
   name: string
@@ -20,9 +23,18 @@ function PersonalPreview(props: Personal) {
         <div className='details'>
           <h1>{props.personal.name}</h1>
           <div className='add-details'>
-            <p>{props.personal.email}</p>
-            <p>{props.personal.birthday}</p>
-            <p>{props.personal.number}</p>
+            <div className='info-box'>
+              <img className='icon' src={email} alt='email' />
+              <p>{props.personal.email}</p>
+            </div>
+            <div className='info-box'>
+              <img className='icon' src={date} alt='date' />
+              <p>{props.personal.birthday}</p>
+            </div>
+            <div className='info-box'>
+              <img className='icon' src={phone} alt='phone' />
+              <p>{props.personal.number}</p>
+            </div>
           </div>
         </div>
       )}
