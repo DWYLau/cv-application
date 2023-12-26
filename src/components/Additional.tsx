@@ -25,9 +25,15 @@ function Additional({ getAdditional }: AdditionalProps) {
   const [nextID, setNextID] = useState(0)
   const [image, setImage] = useState(true)
   const [formVisible, setFormVisible] = useState(false)
+  const [hasError, setHasError] = useState(false)
 
   useEffect(() => {
     getAdditional(inputs)
+    if (inputs.length >= 5) {
+      setHasError(true)
+    } else {
+      setHasError(false)
+    }
   }, [inputs, getAdditional])
 
   function handleChange(event: InputChangeEvent) {
@@ -40,14 +46,11 @@ function Additional({ getAdditional }: AdditionalProps) {
   }
 
   function handleAdd() {
-    if (inputValue.trim() !== "" && inputs.length < 6) {
+    if (inputValue.trim() !== "" && inputs.length < 5) {
       const newInput: AdditionalInfo = { id: nextID, value: inputValue }
       setInputs(prevInputs => [...prevInputs, newInput])
       setInputValue("")
       setNextID(prevID => prevID + 1)
-    }
-    if (inputs.length >= 5) {
-      handleReset()
     }
   }
 
@@ -76,7 +79,11 @@ function Additional({ getAdditional }: AdditionalProps) {
           <>
             <div className='input-box'>
               <label htmlFor='extra'>Add Extra Information</label>
-              <p>(Max - 5 Bullet Points)</p>
+              {hasError && (
+                <p className='error'>
+                  Reached max limit, please reset if you want to change
+                </p>
+              )}
               <input
                 id='extra'
                 name='extra'

@@ -4,6 +4,12 @@
 
 CV Application for The Odin Project
 
+## Description
+
+- Single page web application for making a resume with the ability to export to a PDF file.
+- Users can enter and submit information to create the perfect resume for themselves.
+- Created using TypeScript, React and styled with Vanilla CSS.
+
 ## Aims
 
 1. Review how to create and set up a React project.
@@ -19,7 +25,7 @@ CV Application for The Odin Project
 
 - HTML
 - CSS
-- TypeScript
+- TypeScript/TSX
 
 ## Tools & Libraries
 
@@ -34,6 +40,10 @@ CV Application for The Odin Project
 - Phone icon created by Creaticca Creative Agency - Flaticon
 - Calendar icon created by Prosymbols Premium - Flaticon
 - Email icon created by Freepik - Flaticon
+- User icons created by Maxim Basinski Premium - Flaticon
+- Book icons created by Freepik - Flaticon
+- Work icons created by Freepik - Flaticon
+- Info icons created by Freepik - Flaticon
 
 ## Live Preview
 

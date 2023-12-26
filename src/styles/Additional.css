@@ -50,3 +50,7 @@
 .button-box button:hover {
   box-shadow: 0 0 1rem #636568;
 }
+
+.error {
+  color: #dc143c;
+}

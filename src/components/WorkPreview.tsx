@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react"
 import "../styles/WorkPreview.css"
+import work from "../assets/portfolio.png"
 
 interface Information {
   company: string
@@ -13,7 +15,7 @@ interface Work {
 }
 
 function WorkPreview(props: Work) {
-  const hasWork = props.work
+  const [hasWork, setHasWork] = useState(false)
   const startDate = new Date(props.work.startDate)
   const endDate = new Date(props.work.endDate)
   const months = [
@@ -36,11 +38,26 @@ function WorkPreview(props: Work) {
   ]
   const [endMonth, endYear] = [endDate.getMonth(), endDate.getFullYear()]
 
+  useEffect(() => {
+    if (
+      props.work.company !== "" ||
+      props.work.description !== "" ||
+      props.work.endDate !== "" ||
+      props.work.position !== "" ||
+      props.work.startDate !== ""
+    ) {
+      setHasWork(true)
+    }
+  }, [props])
+
   return (
     <section className='work-preview'>
       {hasWork && (
         <div className='details'>
-          <h1>Experience</h1>
+          <header className='preview-header'>
+            <h1>Work</h1>
+            <img className='header-icon' src={work} alt='Bag' />
+          </header>
           <div className='add-details'>
             <div className='work-info'>
               <p>
@@ -48,9 +65,17 @@ function WorkPreview(props: Work) {
               </p>
               <p>{props.work.position}</p>
             </div>
-            <p>
-              {months[startMonth]} {startYear}- {months[endMonth]} {endYear}
-            </p>
+            {!isNaN(startYear) ? (
+              <p>
+                {months[startMonth]} {startYear} - {months[endMonth]} {endYear}
+              </p>
+            ) : (
+              !isNaN(endYear) && (
+                <p>
+                  {months[endMonth]} {endYear}
+                </p>
+              )
+            )}
           </div>
           <p className='description'>{props.work.description}</p>
         </div>

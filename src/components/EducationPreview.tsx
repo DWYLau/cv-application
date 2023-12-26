@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react"
 import "../styles/EducationPreview.css"
+import book from "../assets/open-book.png"
 
 interface Information {
   school: string
@@ -12,7 +14,7 @@ interface Education {
 }
 
 function EducationPreview(props: Education) {
-  const hasEducation = props.education
+  const [hasEducation, setHasEducation] = useState(false)
   const startDate = new Date(props.education.startDate)
   const endDate = new Date(props.education.endDate)
   const months = [
@@ -35,11 +37,25 @@ function EducationPreview(props: Education) {
   ]
   const [endMonth, endYear] = [endDate.getMonth(), endDate.getFullYear()]
 
+  useEffect(() => {
+    if (
+      props.education.school !== "" ||
+      props.education.study !== "" ||
+      props.education.endDate !== "" ||
+      props.education.startDate !== ""
+    ) {
+      setHasEducation(true)
+    }
+  }, [props])
+
   return (
     <section className='education-preview'>
       {hasEducation && (
         <div className='details'>
-          <h1>Education</h1>
+          <header className='preview-header'>
+            <h1>Education</h1>
+            <img className='header-icon' src={book} alt='Open Book' />
+          </header>
           <div className='add-details'>
             <div className='school-info'>
               <p>
@@ -47,9 +63,18 @@ function EducationPreview(props: Education) {
               </p>
               <p>{props.education.study}</p>
             </div>
-            <p>
-              {months[startMonth]} {startYear} - {months[endMonth]} {endYear}
-            </p>
+
+            {!isNaN(startYear) ? (
+              <p>
+                {months[startMonth]} {startYear} - {months[endMonth]} {endYear}
+              </p>
+            ) : (
+              !isNaN(endYear) && (
+                <p>
+                  {months[endMonth]} {endYear}
+                </p>
+              )
+            )}
           </div>
         </div>
       )}

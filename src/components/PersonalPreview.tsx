@@ -2,6 +2,8 @@ import "../styles/PersonalPreview.css"
 import email from "../assets/email.png"
 import date from "../assets/calendar.png"
 import phone from "../assets/phone.png"
+import user from "../assets/user.png"
+import { useEffect, useState } from "react"
 
 interface Information {
   name: string
@@ -15,13 +17,28 @@ interface Personal {
 }
 
 function PersonalPreview(props: Personal) {
-  const hasPersonal = props.personal
+  const [hasPersonal, setHasPersonal] = useState(false)
+
+  useEffect(() => {
+    if (
+      props.personal.name !== "" ||
+      props.personal.birthday !== "" ||
+      props.personal.email !== "" ||
+      props.personal.number !== ""
+    ) {
+      setHasPersonal(true)
+    }
+  }, [props])
 
   return (
     <section className='personal-preview'>
       {hasPersonal && (
         <div className='details'>
-          <h1>{props.personal.name}</h1>
+          <header className='preview-header'>
+            <h1>{props.personal.name}</h1>
+            <img className='header-icon' src={user} alt='User' />
+          </header>
+
           <div className='add-details'>
             <div className='info-box'>
               <img className='icon' src={email} alt='email' />

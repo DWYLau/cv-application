@@ -1,4 +1,5 @@
 import "../styles/AdditionalPreview.css"
+import info from "../assets/information-button.png"
 
 interface Additional {
   additional: { id: number; value: string }[] | null
@@ -13,8 +14,11 @@ function AdditionalPreview(props: Additional) {
   return (
     <section className='additional-preview'>
       {hasAdditional && (
-        <>
-          <h1>Additional Info</h1>
+        <div className='details'>
+          <header className='preview-header'>
+            <h1>Additional Info</h1>
+            <img className='header-icon' src={info} alt='Information' />
+          </header>
           <ul>
             <ul>
               {props.additional?.map(info => {
@@ -22,7 +26,7 @@ function AdditionalPreview(props: Additional) {
               })}
             </ul>
           </ul>
-        </>
+        </div>
       )}
     </section>
   )
