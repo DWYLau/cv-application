@@ -33,7 +33,7 @@ CV Application for The Odin Project
 - React-to-PDF
 - Vite
 
-## Attritute
+## Attributes
 
 - Download icon created by Font Awesome / Iconscout
 - Maximize/Minimize icon designed by IYAHICON / Flaticon
