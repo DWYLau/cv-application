@@ -2,6 +2,10 @@
   width: 595px;
   text-align: center;
   border-left: 15px solid #b4b7ba;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #additional .input-box {
@@ -53,4 +57,21 @@
 
 .error {
   color: #dc143c;
+}
+
+.input-display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  width: 350px;
+  background: white;
+  border-radius: 0.2rem;
+  list-style: none;
+}
+
+.input-display li {
+  margin-bottom: 0.2rem;
+  font-size: 1.2rem;
 }

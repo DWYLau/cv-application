@@ -60,8 +60,6 @@ function App() {
 
   function getAdditional(information: Additional[]) {
     setAdditional(information)
-    console.log("INFORMATION IS", information)
-    console.log(additional)
   }
 
   const targetRef = useRef(null)

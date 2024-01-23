@@ -26,12 +26,15 @@ function Additional({ getAdditional }: AdditionalProps) {
   const [image, setImage] = useState(true)
   const [formVisible, setFormVisible] = useState(false)
   const [hasError, setHasError] = useState(false)
+  const [hasInputs, setHasInputs] = useState(false)
 
   useEffect(() => {
     getAdditional(inputs)
+    console.log(inputs)
     if (inputs.length >= 5) {
       setHasError(true)
-    } else {
+    } else if (inputs.length > 0) {
+      setHasInputs(true)
       setHasError(false)
     }
   }, [inputs, getAdditional])
@@ -57,6 +60,9 @@ function Additional({ getAdditional }: AdditionalProps) {
   function handleReset() {
     setInputs([])
     setNextID(0)
+    setHasInputs(false)
+    setHasError(false)
+    setInputValue("")
   }
 
   function showForm() {
@@ -93,6 +99,17 @@ function Additional({ getAdditional }: AdditionalProps) {
                 onChange={handleChange}
               />
             </div>
+            {hasInputs && (
+              <ol className='input-display'>
+                {inputs.map(input => {
+                  return (
+                    <li key={input.id}>
+                      {input.id + 1}. {input.value}
+                    </li>
+                  )
+                })}
+              </ol>
+            )}
             <div className='button-box'>
               <button
                 onClick={() => {
