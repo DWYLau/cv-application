@@ -101,15 +101,14 @@ function Additional({ getAdditional }: AdditionalProps) {
             </div>
             {hasInputs && (
               <ol className='input-display'>
-                {inputs.map(input => {
-                  return (
-                    <li key={input.id}>
-                      {input.id + 1}. {input.value}
-                    </li>
-                  )
-                })}
-              </ol>
-            )}
+              {inputs.map(input => {
+                return (
+                  <div className='input-container'>
+                    <li key={input.id}>{input.value}</li>
+                  </div>
+                )
+              })}
+            </ol>
             <div className='button-box'>
               <button
                 onClick={() => {
