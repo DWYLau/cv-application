@@ -27,7 +27,8 @@ function Additional({ getAdditional }: AdditionalProps) {
   const [formVisible, setFormVisible] = useState(false)
   const [hasError, setHasError] = useState(false)
   const [hasInputs, setHasInputs] = useState(false)
-  const [editing, isEditing] = useState(false)
+  const [editing, setEditing] = useState(false)
+  const [editedInputID, setEditedInputID] = useState<number | null>(null)
 
   useEffect(() => {
     getAdditional(inputs)
@@ -66,6 +67,24 @@ function Additional({ getAdditional }: AdditionalProps) {
     setInputValue("")
   }
 
+  function handleEdit(id, value) {
+    setEditing(true)
+    setEditedInputID(id)
+    setInputValue(value)
+  }
+
+  function handleSave() {
+    setInputs(prevInputs =>
+      prevInputs.map(input =>
+        input.id === editedInputID ? { ...input, value: inputValue } : input
+      )
+    )
+
+    setEditing(false)
+    setEditedInputID(null)
+    setInputValue("")
+  }
+
   function showForm() {
     setFormVisible(visible => !visible)
     setImage(maximize => !maximize)
@@ -101,21 +120,42 @@ function Additional({ getAdditional }: AdditionalProps) {
                 onChange={handleChange}
               />
             </div>
+
             {hasInputs && (
               <ol className='input-display'>
-                {inputs.map(input => {
-                  return (
-                    <div className='input-container'>
-                      <li key={input.id}>{input.value}</li>
-                      {!editing && (
-                        <button className='edit-button'>Edit</button>
-                      )}
-                      <button className='delete-button'>Del</button>
-                    </div>
-                  )
-                })}
+                {inputs.map(input => (
+                  <div className='input-container' key={input.id}>
+                    {!editing ? (
+                      <li>{input.value}</li>
+                    ) : (
+                      <input
+                        type='text'
+                        placeholder={input.value}
+                        onChange={event => setInputValue(event.target.value)}
+                      />
+                    )}
+
+                    {!editing ? (
+                      <button
+                        className='edit-button'
+                        onClick={() => handleEdit(input.id, input.value)}
+                      >
+                        Edit
+                      </button>
+                    ) : (
+                      <button
+                        className='save-button'
+                        onClick={() => handleSave()}
+                      >
+                        Save
+                      </button>
+                    )}
+                    <button className='delete-button'>Del</button>
+                  </div>
+                ))}
               </ol>
             )}
+
             <div className='button-box'>
               <button
                 onClick={() => {
