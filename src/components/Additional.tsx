@@ -27,6 +27,7 @@ function Additional({ getAdditional }: AdditionalProps) {
   const [formVisible, setFormVisible] = useState(false)
   const [hasError, setHasError] = useState(false)
   const [hasInputs, setHasInputs] = useState(false)
+  const [editing, isEditing] = useState(false)
 
   useEffect(() => {
     getAdditional(inputs)
@@ -94,6 +95,7 @@ function Additional({ getAdditional }: AdditionalProps) {
                 id='extra'
                 name='extra'
                 type='text'
+                maxLength={40}
                 value={inputValue}
                 placeholder='Add Extra Information'
                 onChange={handleChange}
@@ -105,6 +107,10 @@ function Additional({ getAdditional }: AdditionalProps) {
                   return (
                     <div className='input-container'>
                       <li key={input.id}>{input.value}</li>
+                      {!editing && (
+                        <button className='edit-button'>Edit</button>
+                      )}
+                      <button className='delete-button'>Del</button>
                     </div>
                   )
                 })}
