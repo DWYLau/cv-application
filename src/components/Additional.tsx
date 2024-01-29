@@ -65,9 +65,12 @@ function Additional({ getAdditional }: AdditionalProps) {
     setHasInputs(false)
     setHasError(false)
     setInputValue("")
+    setEditing(false)
+    setEditedInputID(null)
   }
 
-  function handleEdit(id, value) {
+  function handleEdit(id: number, value: string) {
+    console.log(id)
     setEditing(true)
     setEditedInputID(id)
     setInputValue(value)
@@ -79,7 +82,6 @@ function Additional({ getAdditional }: AdditionalProps) {
         input.id === editedInputID ? { ...input, value: inputValue } : input
       )
     )
-
     setEditing(false)
     setEditedInputID(null)
     setInputValue("")
@@ -104,11 +106,14 @@ function Additional({ getAdditional }: AdditionalProps) {
         {formVisible && (
           <>
             <div className='input-box'>
-              <label htmlFor='extra'>Add Extra Information</label>
+              {!editing ? (
+                <label htmlFor='extra'>Add Extra Information</label>
+              ) : (
+                <label htmlFor='extra'>Editing...</label>
+              )}
+
               {hasError && (
-                <p className='error'>
-                  Reached max limit, please reset if you want to change
-                </p>
+                <p className='error'>Reached max limit, please reset or edit</p>
               )}
               <input
                 id='extra'
@@ -125,8 +130,11 @@ function Additional({ getAdditional }: AdditionalProps) {
               <ol className='input-display'>
                 {inputs.map(input => (
                   <div className='input-container' key={input.id}>
-                    {!editing ? (
-                      <li>{input.value}</li>
+                    {editedInputID != input.id ? (
+                      <li>
+                        <span>{input.id + 1} </span>
+                        {input.value}
+                      </li>
                     ) : (
                       <input
                         type='text'
@@ -135,7 +143,7 @@ function Additional({ getAdditional }: AdditionalProps) {
                       />
                     )}
 
-                    {!editing ? (
+                    {editedInputID != input.id ? (
                       <button
                         className='edit-button'
                         onClick={() => handleEdit(input.id, input.value)}
@@ -157,17 +165,22 @@ function Additional({ getAdditional }: AdditionalProps) {
             )}
 
             <div className='button-box'>
-              <button
-                onClick={() => {
-                  handleAdd()
-                  getAdditional(inputs)
-                }}
-                type='submit'
-                value='Submit'
-                className='button'
-              >
-                Add
-              </button>
+              {!editing ? (
+                <button
+                  onClick={() => {
+                    handleAdd()
+                    getAdditional(inputs)
+                  }}
+                  type='submit'
+                  value='Submit'
+                  className='button'
+                >
+                  Add
+                </button>
+              ) : (
+                <button onClick={() => handleSave()}>Save</button>
+              )}
+
               <button
                 onClick={handleReset}
                 type='reset'

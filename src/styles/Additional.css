@@ -73,6 +73,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  height: 2.5rem;
   background: white;
   border-radius: 2rem;
   margin-bottom: 0.4rem;
@@ -83,26 +84,35 @@
   width: 100%;
   text-align: left;
   counter-increment: counter;
+  list-style: none;
 }
 
-.input-container li::before {
-  content: counter(counter);
-  background: #662974;
-  width: 1.8rem;
-  height: 1.8rem;
+.input-container input {
+  font-size: 1.2rem;
+  margin: 0.2rem;
+  margin-left: 0.5rem;
+  padding: 0.1rem;
+  padding-bottom: 0.2rem;
+  border-radius: 10%;
+  width: 100%;
+}
+
+.input-container span {
+  display: block;
+  background: #323232;
+  font-size: 1.3rem;
+  width: 1.9rem;
+  height: 1.9rem;
   border-radius: 50%;
   display: inline-block;
   line-height: 2rem;
   color: white;
   text-align: center;
-  margin: 0.2rem;
-  margin-right: 0.5rem;
+  margin: 0.3rem;
+  margin-top: auto;
+  margin-bottom: auto;
   padding: 0.1rem;
-  padding-bottom: 0.2rem;
-}
-
-.input-container li::before {
-  background: #323232;
+  text-align: center;
 }
 
 .edit-button {
@@ -117,6 +127,15 @@
 .delete-button {
   color: white;
   background-color: #dc3545;
+  margin-right: 0.2rem;
+  font-size: 1.1rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 2rem;
+}
+
+.save-button {
+  color: white;
+  background-color: dodgerblue;
   margin-right: 0.2rem;
   font-size: 1.1rem;
   padding: 0.3rem 0.5rem;
