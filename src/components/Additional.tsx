@@ -70,7 +70,6 @@ function Additional({ getAdditional }: AdditionalProps) {
   }
 
   function handleEdit(id: number, value: string) {
-    console.log(id)
     setEditing(true)
     setEditedInputID(id)
     setInputValue(value)
@@ -85,6 +84,20 @@ function Additional({ getAdditional }: AdditionalProps) {
     setEditing(false)
     setEditedInputID(null)
     setInputValue("")
+  }
+
+  function handleDelete(id: number) {
+    setInputs(prevInputs => {
+      const index = prevInputs.findIndex(input => input.id === id)
+      if (index !== -1) {
+        const updatedInputs = [
+          ...prevInputs.slice(0, index),
+          ...prevInputs.slice(index + 1),
+        ]
+        return updatedInputs
+      }
+      return prevInputs
+    })
   }
 
   function showForm() {
@@ -158,7 +171,12 @@ function Additional({ getAdditional }: AdditionalProps) {
                         Save
                       </button>
                     )}
-                    <button className='delete-button'>Del</button>
+                    <button
+                      className='delete-button'
+                      onClick={() => handleDelete(input.id)}
+                    >
+                      Del
+                    </button>
                   </div>
                 ))}
               </ol>
