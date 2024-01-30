@@ -122,6 +122,8 @@
   background-color: dodgerblue;
   border-radius: 2rem;
   padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  transition: ease 0.5s;
 }
 
 .delete-button {
@@ -131,6 +133,8 @@
   font-size: 1.1rem;
   padding: 0.3rem 0.5rem;
   border-radius: 2rem;
+  cursor: pointer;
+  transition: ease 0.5s;
 }
 
 .save-button {
@@ -140,4 +144,12 @@
   font-size: 1.1rem;
   padding: 0.3rem 0.5rem;
   border-radius: 2rem;
+  cursor: pointer;
+  transition: ease 0.5s;
+}
+
+.delete-button:hover,
+.edit-button:hover,
+.save-button:hover {
+  box-shadow: 0 0 1rem #636568;
 }
