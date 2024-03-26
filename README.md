@@ -47,4 +47,4 @@ CV Application for The Odin Project
 
 ## Live Preview
 
-https://unique-basbousa-54b7ca.netlify.app/
+https://dl-cv-application.netlify.app
